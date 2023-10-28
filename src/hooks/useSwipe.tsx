@@ -27,7 +27,7 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
   const MIN_SWIPE_DISTANCE = input.minSwipeDistance;
 
   const onTouchStart = (e: TouchEvent) => {
-    setTouchEnd({ x: 0, y: 0 });
+    // setTouchEnd({ x: 0, y: 0 });
     setTouchStart({
       x: e.targetTouches[0].clientX,
       y: e.targetTouches[0].clientY,
@@ -45,6 +45,10 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
     if (!touchStart || !touchEnd) return;
     const xDistance = touchStart.x - touchEnd.x;
     const yDistance = touchStart.y - touchEnd.y;
+    console.log("touchStart: ", touchStart.x + "," + touchStart.y);
+    console.log("touchEnd: ", touchEnd.x + "," + touchEnd.y);
+    console.log("xDistance: ", xDistance);
+    console.log("yDistance: ", yDistance);
 
     const isHorizontalSwipe = Math.abs(xDistance) > Math.abs(yDistance);
     const isVerticalSwipe = Math.abs(yDistance) > Math.abs(xDistance);
@@ -55,6 +59,7 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
 
       if (isLeftSwipe && input.onSwipeLeft) {
         input.onSwipeLeft();
+        console.log("swipe left");
       } else if (isRightSwipe && input.onSwipeRight) {
         input.onSwipeRight();
       }
@@ -68,6 +73,8 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
         input.onSwipeDown();
       }
     }
+
+    setTouchEnd({ x: 0, y: 0 });
   };
 
   return {

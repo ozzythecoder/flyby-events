@@ -12,6 +12,9 @@ const config: Config = {
         heading: 'Bebas Neue',
         body: 'Maven Pro',
       },
+      dropShadow: {
+        '4xl': '0 0px 50px rgba(0, 0, 0, 0.5)'
+      },
       colors: {
         'text': {
           50: 'var(--text-50)',
