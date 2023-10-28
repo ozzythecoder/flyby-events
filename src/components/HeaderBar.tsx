@@ -31,7 +31,10 @@ export default function HeaderBar() {
       <nav className="text-primary-800 font-body font-[600]">
         <ul className="flex flex-row justify-evenly">
           {links.map((link) => (
-            <li className="px-4 hover:underline hover:text-primary-950">
+            <li
+              key={link.name}
+              className="px-4 hover:underline hover:text-primary-950"
+            >
               <a target={link.target} rel="noopener noreferrer" href={link.url}>
                 {link.name}
               </a>
