@@ -8,6 +8,7 @@ export default function SwipeMenu() {
   const swipeHandlers = useSwipe({
     onSwipeRight: () => setMenuOpen(true),
     onSwipeLeft: () => setMenuOpen(false),
+    minSwipeDistance: 30,
   });
 
   return (
