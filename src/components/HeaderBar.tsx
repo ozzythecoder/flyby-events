@@ -1,5 +1,3 @@
-import { UserButton } from "@clerk/nextjs";
-
 type Link = {
   name: string;
   url: string;
@@ -26,12 +24,12 @@ const links: Link[] = [
 
 export default function HeaderBar() {
   return (
-    <div className="flex flex-row  mx-[15%] justify-between">
-      <h2 className="text-primary-800 hover:text-primary-950 text-3xl font-heading">
+    <div className="flex flex-col sm:flex-row mx-[15%] justify-between">
+      <h2 className="text-primary-800 hover:text-primary-950 text-3xl text-center font-heading">
         <a href="/">FLYBY events</a>
       </h2>
       <nav className="text-primary-800 font-body font-[600]">
-        <ul className="flex flex-row justify-evenly items-center">
+        <ul className="flex-row justify-evenly items-center hidden sm:flex">
           {links.map((link) => (
             <li
               key={link.name}
@@ -42,9 +40,6 @@ export default function HeaderBar() {
               </a>
             </li>
           ))}
-          <li className="px-4">
-            <UserButton />
-          </li>
         </ul>
       </nav>
     </div>

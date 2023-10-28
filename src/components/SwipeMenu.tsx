@@ -30,7 +30,7 @@ export default function SwipeMenu() {
       </button>
       <div
         className={`overflow-hidden bg-black h-[100vh] transition-[width] ${
-          menuOpen ? "w-[40vw] min-w-[300px]" : "w-0"
+          menuOpen ? "w-[60vw] sm:w-[40vw]" : "w-[0vw]"
         }`}
       >
         <ul className="flex flex-col gap-4 text-xl mx-16 my-16 text-primary-800 whitespace-nowrap">
