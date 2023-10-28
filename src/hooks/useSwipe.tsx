@@ -19,11 +19,11 @@ interface SwipeOutput {
   onTouchEnd: () => void;
 }
 
-export default function Swiper(input: SwipeInput): SwipeOutput {
+export default function useSwipe(input: SwipeInput): SwipeOutput {
   const [touchStart, setTouchStart] = useState<Position>({ x: 0, y: 0 });
   const [touchEnd, setTouchEnd] = useState<Position>({ x: 0, y: 0 });
 
-  const minSwipeDistance = 50;
+  const minSwipeDistance = 10;
 
   const onTouchStart = (e: TouchEvent) => {
     setTouchEnd({ x: 0, y: 0 });
@@ -45,8 +45,8 @@ export default function Swiper(input: SwipeInput): SwipeOutput {
     const xDistance = touchStart.x - touchEnd.x;
     const yDistance = touchStart.y - touchEnd.y;
 
-    const isHorizontalSwipe = xDistance > yDistance;
-    const isVerticalSwipe = yDistance > xDistance;
+    const isHorizontalSwipe = Math.abs(xDistance) > Math.abs(yDistance);
+    const isVerticalSwipe = Math.abs(yDistance) > Math.abs(xDistance);
 
     if (isHorizontalSwipe) {
       const isLeftSwipe = xDistance > minSwipeDistance;
@@ -58,8 +58,8 @@ export default function Swiper(input: SwipeInput): SwipeOutput {
         input.onSwipeRight();
       }
     } else if (isVerticalSwipe) {
-      const isUpSwipe = yDistance < -minSwipeDistance;
-      const isDownSwipe = yDistance > minSwipeDistance;
+      const isUpSwipe = yDistance > minSwipeDistance;
+      const isDownSwipe = yDistance < -minSwipeDistance;
 
       if (isUpSwipe && input.onSwipeUp) {
         input.onSwipeUp();
