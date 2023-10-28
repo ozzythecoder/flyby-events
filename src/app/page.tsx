@@ -1,8 +1,10 @@
 import HeaderBar from "@components/HeaderBar";
+import SwipeMenu from "@components/SwipeMenu";
 
 export default function Home() {
   return (
     <div className="p-8 bg-gradient-to-br from-primary-200 via-primary-500 to-accent-400 bg-fixed h-[100vh]">
+      <SwipeMenu />
       <HeaderBar />
       <div className="max-w-[800px] w-[80vw] mx-auto">
         <h1 className="my-32 font-heading text-5xl md:text-6xl lg:text-8xl text-center text-primary-800">
