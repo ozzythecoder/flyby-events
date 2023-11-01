@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="relative">
       <SwipeMenu />
-      <div className="p-8 bg-gradient-to-br from-primary-200 via-primary-500 to-accent-400 bg-fixed h-[100vh] w-full">
+      <div className="p-8 bg-gradient-to-br from-primary-100 via-primary-400 to-primary-800 bg-fixed h-[100vh] w-full">
         <HeaderBar />
         <div className="max-w-[800px] w-[80vw] mx-auto">
           <h1 className="my-32 font-heading text-5xl md:text-6xl lg:text-8xl text-center text-primary-800">
