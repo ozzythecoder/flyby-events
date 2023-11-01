@@ -1,9 +1,10 @@
 "use client";
 import useSwipe from "@/hooks/useSwipe";
 import { useState } from "react";
-import { X, MenuIcon } from "lucide-react";
+import { X, MenuIcon, Settings } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 import ThemeToggle from "./ThemeToggle";
+import { links } from "@/lib/navigation";
 
 export default function SwipeMenu() {
   const [menuOpen, setMenuOpen] = useState<Boolean>(false);
@@ -13,6 +14,11 @@ export default function SwipeMenu() {
     onSwipeLeft: () => setMenuOpen(false),
     minSwipeDistance: 80,
   });
+
+  const eventProps = {
+    onBlur: () => setMenuOpen(false),
+    onFocus: () => setMenuOpen(true),
+  };
 
   return (
     <div
@@ -30,19 +36,42 @@ export default function SwipeMenu() {
         )}
       </button>
       <div
-        className={`overflow-hidden bg-primary-200 h-[100vh] max-w-[400px] transition-[width] ${
+        className={`overflow-hidden bg-primary-200 max-w-[400px] m-2 rounded-md transition-[width] ${
           menuOpen ? "w-[60vw] sm:w-[40vw]" : "w-[0vw]"
         }`}
       >
-        <ul className="flex flex-col gap-4 text-xl mx-16 my-16 text-primary-950 whitespace-nowrap">
-          <li>thing 1</li>
-          <li>thing 2</li>
-          <li>thing 3</li>
-          <li>thing 4</li>
-          <li>
-            <UserButton />
-          </li>
-        </ul>
+        <nav className="font-body text-xl m-16">
+          <ul
+            className={`flex flex-col gap-4 text-primary-950 overflow-x-hidden sm:whitespace-nowrap`}
+          >
+            {links.map((link) => (
+              <li
+                key={link.name}
+                className="hover:underline hover:text-primary-950"
+              >
+                <a
+                  target={link.target}
+                  rel="noopener noreferrer"
+                  href={link.url}
+                  {...eventProps}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex flex-row justify-evenly mt-8 w-full">
+            <li>
+              {/*
+                TODO: Figure out onFocus and onBlur for UserButton
+              */}
+              {/* <UserButton /> */}
+            </li>
+            <li>
+              <ThemeToggle {...eventProps} />
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );
