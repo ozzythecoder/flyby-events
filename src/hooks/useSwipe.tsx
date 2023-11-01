@@ -21,6 +21,8 @@ interface SwipeOutput {
 }
 
 export default function useSwipe(input: SwipeInput): SwipeOutput {
+  const LOCAL_DEBUG = false;
+
   const [touchStart, setTouchStart] = useState<Position>({ x: 0, y: 0 });
   const [touchEnd, setTouchEnd] = useState<Position>({ x: 0, y: 0 });
 
@@ -45,10 +47,13 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
     if (!touchStart || !touchEnd) return;
     const xDistance = touchStart.x - touchEnd.x;
     const yDistance = touchStart.y - touchEnd.y;
-    console.log("touchStart: ", touchStart.x + "," + touchStart.y);
-    console.log("touchEnd: ", touchEnd.x + "," + touchEnd.y);
-    console.log("xDistance: ", xDistance);
-    console.log("yDistance: ", yDistance);
+
+    if (LOCAL_DEBUG) {
+      console.log("touchStart: ", touchStart.x + "," + touchStart.y);
+      console.log("touchEnd: ", touchEnd.x + "," + touchEnd.y);
+      console.log("xDistance: ", xDistance);
+      console.log("yDistance: ", yDistance);
+    }
 
     const isHorizontalSwipe = Math.abs(xDistance) > Math.abs(yDistance);
     const isVerticalSwipe = Math.abs(yDistance) > Math.abs(xDistance);
@@ -59,9 +64,10 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
 
       if (isLeftSwipe && input.onSwipeLeft) {
         input.onSwipeLeft();
-        console.log("swipe left");
+        if (LOCAL_DEBUG) console.log("swipe left");
       } else if (isRightSwipe && input.onSwipeRight) {
         input.onSwipeRight();
+        if (LOCAL_DEBUG) console.log("swipe right");
       }
     } else if (isVerticalSwipe) {
       const isUpSwipe = yDistance > MIN_SWIPE_DISTANCE;
@@ -69,8 +75,10 @@ export default function useSwipe(input: SwipeInput): SwipeOutput {
 
       if (isUpSwipe && input.onSwipeUp) {
         input.onSwipeUp();
+        if (LOCAL_DEBUG) console.log("swipe up");
       } else if (isDownSwipe && input.onSwipeDown) {
         input.onSwipeDown();
+        if (LOCAL_DEBUG) console.log("swipe down");
       }
     }
 
