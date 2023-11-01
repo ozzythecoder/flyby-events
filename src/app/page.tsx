@@ -1,9 +1,11 @@
 import HeaderBar from "@components/HeaderBar";
+import SkipToContent from "@components/SkipToContent";
 import SwipeMenu from "@components/SwipeMenu";
 
 export default function Home() {
   return (
     <div className="relative">
+      <SkipToContent />
       <SwipeMenu />
       <div className="p-8 bg-gradient-to-br from-primary-100 via-primary-400 to-primary-800 bg-fixed h-[100vh] w-full">
         <HeaderBar />
