@@ -1,6 +1,8 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import type { Metadata } from "next";
+import { ThemeContextProvider } from "@/context/theme";
+import ThemeWrapper from "@components/ThemeWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html className="dark" lang="en">
-        <body>{children}</body>
-      </html>
-    </ClerkProvider>
+    <ThemeContextProvider>
+      <ClerkProvider>
+        <html lang="en">
+          <body>
+            <ThemeWrapper>{children}</ThemeWrapper>
+          </body>
+        </html>
+      </ClerkProvider>
+    </ThemeContextProvider>
   );
 }
