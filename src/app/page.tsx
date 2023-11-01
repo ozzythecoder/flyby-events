@@ -7,7 +7,11 @@ export default function Home() {
       <SwipeMenu />
       <div className="p-8 bg-gradient-to-br from-primary-100 via-primary-400 to-primary-800 bg-fixed h-[100vh] w-full">
         <HeaderBar />
-        <div className="max-w-[800px] w-[80vw] mx-auto">
+        <main
+          id="main"
+          tabIndex={-1}
+          className="max-w-[800px] w-[80vw] mx-auto"
+        >
           <h1 className="my-32 font-heading text-5xl md:text-6xl lg:text-8xl text-center text-primary-800">
             Organize your event in seconds.
           </h1>
@@ -24,7 +28,7 @@ export default function Home() {
             ex non excepteur duis sunt velit enim. Voluptate laboris sint
             cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
           </p>
-        </div>
+        </main>
       </div>
     </div>
   );
