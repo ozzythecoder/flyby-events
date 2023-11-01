@@ -16,6 +16,7 @@ const config: Config = {
         '4xl': '0 0px 50px rgba(0, 0, 0, 0.5)'
       },
       colors: {
+        'high-contrast': 'var(--high-contrast)',
         'text': {
           50: 'var(--text-50)',
           100: 'var(--text-100)',

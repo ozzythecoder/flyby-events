@@ -4,10 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
+    
+    --high-contrast: #000000;
+
     --text-50: #edf8f7;
     --text-100: #daf1ee;
     --text-200: #b6e2dd;
@@ -70,6 +71,9 @@
     
   }
   .dark {
+
+    --high-contrast: #ffffff;
+
     --text-50: #071211;
     --text-100: #0e2522;
     --text-200: #1d4943;
@@ -131,4 +135,4 @@
     --accent-950: #edeef8;
     
   }
-};
+}
