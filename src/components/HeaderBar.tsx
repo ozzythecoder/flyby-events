@@ -1,3 +1,5 @@
+import ThemeToggle from "./ThemeToggle";
+
 type Link = {
   name: string;
   url: string;
@@ -25,7 +27,7 @@ const links: Link[] = [
 export default function HeaderBar() {
   return (
     <div className="flex flex-col sm:flex-row mx-[15%] justify-between">
-      <h2 className="text-primary-800 hover:text-primary-950 text-3xl text-center font-heading">
+      <h2 className="text-primary-800 hover:text-primary-950 hover:underline text-3xl text-center font-heading">
         <a href="/">FLYBY events</a>
       </h2>
       <nav className="text-primary-800 font-body font-[600]">
@@ -42,6 +44,7 @@ export default function HeaderBar() {
           ))}
         </ul>
       </nav>
+      <ThemeToggle />
     </div>
   );
 }
