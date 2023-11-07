@@ -10,8 +10,17 @@ export default function ThemeToggle(props: {
   const { theme, setTheme } = useThemeContext();
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const root = document.getElementsByTagName("body")[0];
+    root.classList.toggle("dark");
+    if (root.classList.contains("dark")) {
+      setTheme("dark");
+      document.cookie = "theme=dark";
+    } else {
+      setTheme("light");
+      document.cookie = "theme=light";
+    }
   };
+
   return (
     <button onClick={toggleTheme} {...props}>
       {theme === "dark" ? (
