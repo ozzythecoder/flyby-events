@@ -7,7 +7,7 @@ type Link = {
 export const links: Link[] = [
   {
     name: "Home",
-    url: "#",
+    url: "/",
     target: "_self",
   },
   {
