@@ -16,7 +16,9 @@ export default function Home() {
           className="max-w-[800px] w-[80vw] mx-auto"
         >
           <h1 className="my-32 font-heading text-5xl md:text-6xl lg:text-8xl text-center text-primary-800">
-            Organize your event in seconds.
+            Plan your gig.
+            <br />
+            Tell your friends.
           </h1>
           <div className="p-4 bg-background-transparent/20 rounded-md drop-shadow-xl">
             <p className="font-body text-md md:text-lg text-text-950">

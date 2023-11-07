@@ -23,7 +23,7 @@ export default function SwipeMenu() {
   return (
     <div
       {...swipeHandlers}
-      className={`absolute drop-shadow-4xl h-[100vh] w-[15vw] `}
+      className={`absolute drop-shadow-4xl h-[100vh] w-[15vw]`}
     >
       <button
         className="fixed m-8 h-8 w-fit bg-transparent text-center"
