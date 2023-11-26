@@ -1,8 +1,8 @@
 "use client";
+import Link from "next/link";
 import useSwipe from "@/hooks/useSwipe";
 import { useState } from "react";
-import { X, MenuIcon, Settings } from "lucide-react";
-import { UserButton } from "@clerk/nextjs";
+import { X, MenuIcon } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { links } from "@/lib/navigation";
 
@@ -16,8 +16,8 @@ export default function SwipeMenu() {
   });
 
   const eventProps = {
-    onBlur: () => setMenuOpen(false),
     onFocus: () => setMenuOpen(true),
+    onBlur: () => setMenuOpen(false),
   };
 
   return (
@@ -49,14 +49,15 @@ export default function SwipeMenu() {
                 key={link.name}
                 className="hover:underline hover:text-primary-950"
               >
-                <a
+                <Link
                   target={link.target}
                   rel="noopener noreferrer"
                   href={link.url}
                   {...eventProps}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
