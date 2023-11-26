@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        heading: 'Bebas Neue',
-        body: 'Maven Pro',
+        heading: 'var(--font-bebas-neue)',
+        body: 'var(--font-maven-pro)',
       },
       dropShadow: {
         '4xl': '0 0px 50px rgba(0, 0, 0, 0.5)'
