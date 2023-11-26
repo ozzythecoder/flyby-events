@@ -1,6 +1,8 @@
 "use client";
 import { TouchEvent, useState } from "react";
 
+const LOCAL_DEBUG = false;
+
 interface Position {
   x: number;
   y: number;
@@ -21,8 +23,6 @@ interface SwipeOutput {
 }
 
 export default function useSwipe(input: SwipeInput): SwipeOutput {
-  const LOCAL_DEBUG = false;
-
   const [touchStart, setTouchStart] = useState<Position>({ x: 0, y: 0 });
   const [touchEnd, setTouchEnd] = useState<Position>({ x: 0, y: 0 });
 
