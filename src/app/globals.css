@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Maven+Pro:400,600,700');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   :root {
