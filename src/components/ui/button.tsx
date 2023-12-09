@@ -1,6 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { twMerge } from "tailwind-merge";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 const buttonClasses = cva(
   "p-2 min-w-[100px] inline-flex justify-around align-center",
@@ -56,9 +55,7 @@ export const Button: React.FC<ButtonProps> = ({
   hover,
   className,
 }) => (
-  <button
-    className={twMerge(clsx(buttonClasses({ intent, text, hover }), className))}
-  >
+  <button className={cn(buttonClasses({ intent, text, hover }), className)}>
     {children}
   </button>
 );
