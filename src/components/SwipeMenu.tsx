@@ -2,12 +2,15 @@
 import Link from "next/link";
 import useSwipe from "@/hooks/useSwipe";
 import { useState } from "react";
-import { X, MenuIcon } from "lucide-react";
+import { X, MenuIcon, User } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { links } from "@/lib/navigation";
+import { SignInButton, useUser } from "@clerk/nextjs";
 
 export default function SwipeMenu() {
   const [menuOpen, setMenuOpen] = useState<Boolean>(false);
+
+  const { user } = useUser();
 
   const swipeHandlers = useSwipe({
     onSwipeRight: () => setMenuOpen(true),
@@ -47,9 +50,10 @@ export default function SwipeMenu() {
             {links.map((link) => (
               <li
                 key={link.name}
-                className="hover:underline hover:text-primary-950"
+                className="hover:underline hover:text-primary-950 "
               >
                 <Link
+                  className="focus:underline focus:text-primary-950"
                   target={link.target}
                   rel="noopener noreferrer"
                   href={link.url}
@@ -63,10 +67,20 @@ export default function SwipeMenu() {
           </ul>
           <ul className="flex flex-row justify-evenly mt-8 w-full">
             <li>
-              {/*
-                TODO: Figure out onFocus and onBlur for UserButton
-              */}
-              {/* <UserButton /> */}
+              {user ? (
+                <Link className="group" href="/user-profile" {...eventProps}>
+                  <img
+                    className="transition-all group-hover:scale-125 rounded-full h-6"
+                    src={user.imageUrl}
+                  />
+                </Link>
+              ) : (
+                <SignInButton>
+                  <button type="button" {...eventProps}>
+                    <User className="font-body text-primary-950" />
+                  </button>
+                </SignInButton>
+              )}
             </li>
             <li>
               <ThemeToggle {...eventProps} />
