@@ -1,6 +1,6 @@
 {
-  "id": "a30f8b63-d67e-4d4e-b234-97b209210436",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "b42179bf-eee3-4f7c-baf6-01af4c5c8ab2",
+  "prevId": "0c312fdb-3a2b-4ab8-afc5-791dd95c1518",
   "version": "5",
   "dialect": "pg",
   "tables": {
@@ -181,6 +181,13 @@
           "primaryKey": false,
           "notNull": true
         },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
         "private": {
           "name": "private",
           "type": "boolean",
@@ -240,27 +247,19 @@
           "name": "full_name",
           "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "username": {
           "name": "username",
           "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "user_username_unique": {
-          "name": "user_username_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "username"
-          ]
-        }
-      }
+      "uniqueConstraints": {}
     }
   },
   "enums": {
