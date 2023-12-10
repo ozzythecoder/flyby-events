@@ -54,8 +54,12 @@ export const Button: React.FC<ButtonProps> = ({
   text,
   hover,
   className,
+  ...props
 }) => (
-  <button className={cn(buttonClasses({ intent, text, hover }), className)}>
+  <button
+    className={cn(buttonClasses({ intent, text, hover }), className)}
+    {...props}
+  >
     {children}
   </button>
 );
