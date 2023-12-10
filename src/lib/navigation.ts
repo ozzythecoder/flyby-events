@@ -16,8 +16,8 @@ export const links: Link[] = [
     target: "_self",
   },
   {
-    name: "Dashboard",
-    url: "/dashboard",
+    name: "My Events",
+    url: "/event/my-events",
     target: "_self"
   },
   {
