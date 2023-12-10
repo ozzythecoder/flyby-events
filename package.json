@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migration:generate": "drizzle-kit generate:pg --out src/db/migrations --schema src/db/schema.ts",
+    "migration:generate": "drizzle-kit generate:pg",
     "migration:push": "node -r esbuild-register src/db/migrate.ts"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "drizzle-orm": "^0.29.0",
     "lucide-react": "^0.290.0",
     "next": "14.0.1",
+    "pg": "^8.11.3",
     "postgres": "^3.4.2",
     "react": "^18",
     "react-dom": "^18"
@@ -28,7 +29,7 @@
     "autoprefixer": "^10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "drizzle-kit": "^0.20.2",
+    "drizzle-kit": "^0.20.6",
     "esbuild": "^0.19.5",
     "esbuild-register": "^3.5.0",
     "eslint": "^8",
