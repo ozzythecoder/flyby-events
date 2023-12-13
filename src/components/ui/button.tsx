@@ -1,5 +1,7 @@
+"use client";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const buttonClasses = cva(
   "p-2 min-w-[100px] inline-flex justify-around align-center",
@@ -63,3 +65,34 @@ export const Button: React.FC<ButtonProps> = ({
     {children}
   </button>
 );
+
+export interface ButtonAsLinkProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
+    VariantProps<typeof buttonClasses> {
+  children: React.ReactNode;
+  className?: string;
+  href: string;
+}
+
+export const ButtonAsLink: React.FC<ButtonAsLinkProps> = ({
+  children,
+  intent,
+  text,
+  hover,
+  className,
+  href,
+  ...props
+}) => {
+  const router = useRouter();
+
+  return (
+    <button
+      role="link"
+      className={cn(buttonClasses({ intent, text, hover }), className)}
+      onClick={() => router.push(href)}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
