@@ -18,12 +18,12 @@ export const links: Link[] = [
   {
     name: "My Events",
     url: "/event/my-events",
-    target: "_self"
+    target: "_self",
   },
   {
     name: "Notifications",
     url: "#",
-    target: "_self"
+    target: "_self",
   },
   {
     name: "An external link",

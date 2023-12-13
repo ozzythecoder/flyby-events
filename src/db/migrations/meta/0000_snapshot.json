@@ -53,12 +53,8 @@
           "name": "comment_event_id_event_id_fk",
           "tableFrom": "comment",
           "tableTo": "event",
-          "columnsFrom": [
-            "event_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["event_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -66,12 +62,8 @@
           "name": "comment_author_id_user_user_id_fk",
           "tableFrom": "comment",
           "tableTo": "user",
-          "columnsFrom": [
-            "author_id"
-          ],
-          "columnsTo": [
-            "user_id"
-          ],
+          "columnsFrom": ["author_id"],
+          "columnsTo": ["user_id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -79,12 +71,8 @@
           "name": "comment_reply_to_id_comment_id_fk",
           "tableFrom": "comment",
           "tableTo": "comment",
-          "columnsFrom": [
-            "reply_to_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["reply_to_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -129,12 +117,8 @@
           "name": "eventGuests_user_id_user_user_id_fk",
           "tableFrom": "eventGuests",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "user_id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["user_id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -142,12 +126,8 @@
           "name": "eventGuests_event_id_event_id_fk",
           "tableFrom": "eventGuests",
           "tableTo": "event",
-          "columnsFrom": [
-            "event_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["event_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -157,10 +137,7 @@
         "eventGuests_user_id_event_id_unique": {
           "name": "eventGuests_user_id_event_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "event_id"
-          ]
+          "columns": ["user_id", "event_id"]
         }
       }
     },
@@ -213,12 +190,8 @@
           "name": "event_host_id_user_user_id_fk",
           "tableFrom": "event",
           "tableTo": "user",
-          "columnsFrom": [
-            "host_id"
-          ],
-          "columnsTo": [
-            "user_id"
-          ],
+          "columnsFrom": ["host_id"],
+          "columnsTo": ["user_id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -256,9 +229,7 @@
         "user_username_unique": {
           "name": "user_username_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "username"
-          ]
+          "columns": ["username"]
         }
       }
     }

@@ -38,7 +38,7 @@ const buttonClasses = cva(
       shape: "rounded",
       hover: "static",
     },
-  },
+  }
 );
 
 export interface ButtonProps

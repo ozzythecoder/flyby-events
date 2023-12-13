@@ -22,7 +22,7 @@
       "@components/*": ["./src/components/*"],
       "@db/*": ["./src/db/*"],
       "@api/*": ["./src/app/api/*"],
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
   "ts-node": {

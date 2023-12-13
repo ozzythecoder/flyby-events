@@ -44,7 +44,7 @@ export default function RootLayout({
             className={clsx(
               initTheme?.value,
               mavenPro.variable,
-              bebasNeue.variable,
+              bebasNeue.variable
             )}
           >
             {children}
