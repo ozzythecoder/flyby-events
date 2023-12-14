@@ -13,6 +13,8 @@ const EventSchema = z.object({
   private: z.boolean().default(false),
   location: z.string().max(256),
   description: z.string().max(3000),
+  timestamp: z.string().datetime(),
+  ticketLink: z.string().max(256).optional(),
   id: z.string(),
   hostId: z.string(),
   createdAt: z.string(),
@@ -36,15 +38,17 @@ export async function createEvent(formData: FormData) {
 
   const { data } = validatedFields;
 
-  try {
+  console.log(JSON.stringify(data, null, 4));
 
+  try {
     const [{ eventId }] = await db.insert(events).values({
       hostId: user.id,
       name: data.name,
       private: data.private,
       location: data.location,
       description: data.description,
-      createdAt: new Date(Date.now()),
+      timestamp: data.timestamp,
+      ticketLink: data.ticketLink ?? null,
     }).returning({ eventId: events.id })
 
     revalidatePath('/event')
