@@ -5,7 +5,7 @@ import { useState } from "react";
 import { X, MenuIcon, User } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { links } from "@/lib/navigation";
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 
 export default function SideNav() {
   const [menuOpen, setMenuOpen] = useState<Boolean>(false);
@@ -81,8 +81,13 @@ export default function SideNav() {
                 </Link>
               ) : (
                 <SignInButton>
-                  <button aria-label="Sign In" type="button" {...eventProps}>
-                    <User className="font-body text-primary-950" />
+                  <button
+                    className="group"
+                    aria-label="Sign In"
+                    type="button"
+                    {...eventProps}
+                  >
+                    <User className="font-body text-primary-800 transition-all group-hover:text-primary-950 group-hover:scale-125 group-hover:cursor-pointer" />
                   </button>
                 </SignInButton>
               )}
