@@ -1,7 +1,7 @@
-import HeaderBar from "@components/HeaderBar";
-import SkipToContent from "@components/SkipToContent";
-import SwipeMenu from "@components/SwipeMenu";
-import { Button, ButtonAsLink } from "@components/ui/button";
+import HeaderBar from "@components/ui/HeaderBar";
+import SkipToContent from "@components/ui/SkipToContent";
+import SwipeMenu from "@components/ui/Sidenav";
+import { Button, ButtonAsLink } from "@components/ui/Button";
 
 export default function Home() {
   return (
@@ -37,10 +37,20 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-row justify-evenly mt-4">
-            <ButtonAsLink href="/sign-in" intent="primary" text="stylized" hover="highlight">
+            <ButtonAsLink
+              href="/sign-in"
+              intent="primary"
+              text="stylized"
+              hover="highlight"
+            >
               Log In
             </ButtonAsLink>
-            <Button intent="secondary" text="stylized" hover="highlight">
+            <Button
+              type="submit"
+              intent="secondary"
+              text="stylized"
+              hover="highlight"
+            >
               Learn More
             </Button>
           </div>
