@@ -22,7 +22,11 @@ export default function ThemeToggle(props: {
   };
 
   return (
-    <button onClick={toggleTheme} {...props}>
+    <button
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      onClick={toggleTheme}
+      {...props}
+    >
       {theme === "dark" ? (
         <Moon className="text-primary-800 hover:text-primary-950 hover:scale-125 transition-all" />
       ) : (

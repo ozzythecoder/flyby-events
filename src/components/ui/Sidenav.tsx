@@ -68,7 +68,7 @@ export default function SwipeMenu() {
           <ul className="flex flex-row justify-evenly mt-8 w-full">
             <li>
               {user ? (
-                <Link className="group" href="/user-profile" {...eventProps}>
+                <Link className="group" aria-label="User Profile" href="/user-profile" {...eventProps}>
                   <img
                     className="transition-all group-hover:scale-125 rounded-full h-6"
                     src={user.imageUrl}
@@ -76,7 +76,7 @@ export default function SwipeMenu() {
                 </Link>
               ) : (
                 <SignInButton>
-                  <button type="button" {...eventProps}>
+                  <button aria-label="Sign In" type="button" {...eventProps}>
                     <User className="font-body text-primary-950" />
                   </button>
                 </SignInButton>
