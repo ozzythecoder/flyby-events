@@ -7,7 +7,7 @@ import ThemeToggle from "./ThemeToggle";
 import { links } from "@/lib/navigation";
 import { SignInButton, useUser } from "@clerk/nextjs";
 
-export default function SwipeMenu() {
+export default function SideNav() {
   const [menuOpen, setMenuOpen] = useState<Boolean>(false);
 
   const { user } = useUser();
