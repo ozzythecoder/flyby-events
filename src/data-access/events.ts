@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 
 export async function getEvent(
   eventId: string
-): Promise<{ data: Event[]; error: null } | { data: null; error: any }> {
+): Promise<{ data: Event[]; error: null } | { data: null; error: unknown }> {
   try {
     const data = await db.select().from(events).where(eq(events.id, eventId));
 
@@ -22,7 +22,7 @@ export async function getEvent(
 
 export async function getEventsByHost(
   hostId: string
-): Promise<{ data: Event[]; error: null } | { data: null; error: any }> {
+): Promise<{ data: Event[]; error: null } | { data: null; error: unknown }> {
   try {
     const data = await db
       .select()
