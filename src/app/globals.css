@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
+    .light {
         --text-50: 237 248 247;
         --text-100: 218 241 238;
         --text-200: 182 226 221;
