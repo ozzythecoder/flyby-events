@@ -1,0 +1,1 @@
+ALTER TABLE "event" ALTER COLUMN "ticket_link" SET DATA TYPE varchar(256);

@@ -29,6 +29,9 @@ export const usersRelation = relations(users, ({ many }) => ({
   events: many(events),
 }));
 
+// Postgres Resource on timestamps:
+// https://www.postgresql.org/docs/current/datatype-datetime.html
+
 export const events = pgTable("event", {
   id: uuid("id").defaultRandom().primaryKey(),
   name: varchar("name", { length: 256 }).notNull(),
@@ -38,6 +41,8 @@ export const events = pgTable("event", {
   private: boolean("private").default(false),
   location: varchar("location", { length: 256 }),
   description: varchar("description", { length: 3000 }),
+  timestamp: timestamp("timestamp", { withTimezone: true, mode: "string" }).notNull(),
+  ticketLink: varchar("ticket_link", { length: 256 }),
   hostId: text("host_id")
     .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' })
     .notNull(),
