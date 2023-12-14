@@ -1,25 +1,14 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Theme, ThemeContextProvider } from "@/context/theme";
-import { dark as clerkDark } from "@clerk/themes";
-import { Bebas_Neue, Maven_Pro } from "next/font/google";
+import { ThemeContextProvider } from "@/context/theme";
+import { bebasNeue, mavenPro } from "@/fonts/fonts";
 import "./globals.css";
 import clsx from "clsx";
+import { validateTheme } from "@/lib/validateTheme";
+import App from "./App";
 
-const bebasNeue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-bebas-neue",
-});
-
-const mavenPro = Maven_Pro({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-maven-pro",
-});
+const DEFAULT_THEME = "dark";
 
 export const metadata: Metadata = {
   title: "FlyBy Events",
@@ -30,26 +19,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const initTheme = cookies().get("theme");
+  const themeCookie = cookies().get("theme")?.value;
+  const theme = validateTheme(themeCookie, DEFAULT_THEME);
 
   return (
-    <ThemeContextProvider initTheme={initTheme?.value as Theme}>
-      <ClerkProvider
-        appearance={{
-          baseTheme: clerkDark,
-        }}
-      >
-        <html lang="en">
-          <body
-            className={clsx(
-              initTheme?.value,
-              mavenPro.variable,
-              bebasNeue.variable
-            )}
-          >
+    <ThemeContextProvider themeInput={theme}>
+      <ClerkProvider>
+        <App>
+          <body className={clsx(mavenPro.variable, bebasNeue.variable)}>
             {children}
           </body>
-        </html>
+        </App>
       </ClerkProvider>
     </ThemeContextProvider>
   );
