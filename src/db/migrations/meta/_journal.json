@@ -22,6 +22,20 @@
       "when": 1702182340631,
       "tag": "0002_daily_epoch",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1702513344470,
+      "tag": "0003_messy_dragon_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1702514322887,
+      "tag": "0004_gigantic_lord_tyger",
+      "breakpoints": true
     }
   ]
 }

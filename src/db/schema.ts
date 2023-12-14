@@ -38,7 +38,9 @@ export const events = pgTable("event", {
   private: boolean("private").default(false),
   location: varchar("location", { length: 256 }),
   description: varchar("description", { length: 3000 }),
-  hostId: text("host_id").references(() => users.id),
+  hostId: text("host_id")
+    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' })
+    .notNull(),
 });
 
 export const eventsRelation = relations(events, ({ one, many }) => ({
@@ -51,11 +53,12 @@ export const comments = pgTable("comment", {
   id: uuid("id").defaultRandom().primaryKey(),
   eventId: uuid("event_id")
     .notNull()
-    .references(() => events.id),
+    .references(() => events.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   authorId: text("author_id")
     .notNull()
-    .references(() => users.id),
-  replyToId: uuid("reply_to_id").references((): AnyPgColumn => comments.id),
+    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  replyToId: uuid("reply_to_id")
+    .references((): AnyPgColumn => comments.id, { onDelete: 'no action', onUpdate: 'cascade' }),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
@@ -74,8 +77,10 @@ export const commentsRelation = relations(comments, ({ one }) => ({
 export const eventGuests = pgTable(
   "eventGuests",
   {
-    userId: text("user_id").references(() => users.id),
-    eventId: uuid("event_id").references(() => events.id),
+    userId: text("user_id")
+      .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }).notNull(),
+    eventId: uuid("event_id")
+      .references(() => events.id, { onDelete: 'cascade', onUpdate: 'cascade' }).notNull(),
     guestStatus: guestStatusEnum("guest_state").default("none"),
     invitationRead: boolean("invitation_read").default(false),
   },
