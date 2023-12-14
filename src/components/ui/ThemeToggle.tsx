@@ -2,23 +2,21 @@
 
 import { useThemeContext } from "@/context/theme";
 import { Sun, Moon } from "lucide-react";
+import { setCookie } from "@/actions/cookie";
 
 export default function ThemeToggle(props: {
   onFocus?: () => void;
   onBlur?: () => void;
 }) {
   const { theme, setTheme } = useThemeContext();
+  // HARD-CODED:
+  const newTheme = theme === "dark" ? "light" : "dark";
+
+  const setCookieWithTheme = setCookie.bind(null, newTheme);
 
   const toggleTheme = () => {
-    const root = document.getElementsByTagName("body")[0];
-    root.classList.toggle("dark");
-    if (root.classList.contains("dark")) {
-      setTheme("dark");
-      document.cookie = "theme=dark";
-    } else {
-      setTheme("light");
-      document.cookie = "theme=light";
-    }
+    setTheme(newTheme);
+    setCookieWithTheme();
   };
 
   return (
@@ -27,7 +25,7 @@ export default function ThemeToggle(props: {
       onClick={toggleTheme}
       {...props}
     >
-      {theme === "dark" ? (
+      {theme === "light" ? (
         <Moon className="text-primary-800 hover:text-primary-950 hover:scale-125 transition-all" />
       ) : (
         <Sun className="text-primary-800 hover:text-primary-950 hover:scale-125 transition-all" />
