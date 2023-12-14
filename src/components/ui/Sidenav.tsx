@@ -26,10 +26,10 @@ export default function SideNav() {
   return (
     <div
       {...swipeHandlers}
-      className={`absolute drop-shadow-4xl h-[100vh] w-[15vw]`}
+      className={`z-20 absolute drop-shadow-4xl h-[100vh] w-[15vw]`}
     >
       <button
-        className="fixed m-8 h-8 w-fit bg-transparent text-center"
+        className="fixed m-8 h-8 w-fit bg-transparent text-center z-20"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? (
@@ -39,8 +39,8 @@ export default function SideNav() {
         )}
       </button>
       <div
-        className={`overflow-hidden bg-primary-200 max-w-[400px] m-2 rounded-md transition-[width] ${
-          menuOpen ? "w-[60vw] sm:w-[40vw]" : "w-[0vw]"
+        className={`overflow-hidden bg-primary-200 max-w-[400px] m-2 rounded-md transition-[width] w-[60vw] sm:w-[40vw] ${
+          menuOpen ? "translate-x-0" : "-translate-x-[100dvw]"
         }`}
       >
         <nav className="font-body text-xl m-16">
@@ -68,7 +68,12 @@ export default function SideNav() {
           <ul className="flex flex-row justify-evenly mt-8 w-full">
             <li>
               {user ? (
-                <Link className="group" aria-label="User Profile" href="/user-profile" {...eventProps}>
+                <Link
+                  className="group"
+                  aria-label="User Profile"
+                  href="/user-profile"
+                  {...eventProps}
+                >
                   <img
                     className="transition-all group-hover:scale-125 rounded-full h-6"
                     src={user.imageUrl}

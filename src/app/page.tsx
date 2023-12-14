@@ -1,13 +1,13 @@
 import HeaderBar from "@components/ui/HeaderBar";
 import SkipToContent from "@components/ui/SkipToContent";
-import SwipeMenu from "@components/ui/Sidenav";
+import Sidenav from "@components/ui/Sidenav";
 import { Button, ButtonAsLink } from "@components/ui/Button";
 
 export default function Home() {
   return (
     <div className="relative">
       <SkipToContent />
-      <SwipeMenu />
+      <Sidenav />
       <div className="p-8 bg-gradient-to-br from-primary-100 via-primary-400 to-primary-800 bg-fixed h-[100vh] w-full">
         <HeaderBar />
         <main
@@ -20,7 +20,7 @@ export default function Home() {
             <br />
             Tell your friends.
           </h1>
-          <div className="p-4 bg-background-transparent/20 rounded-md drop-shadow-xl">
+          <div className="relative p-4 bg-background-transparent/30 rounded-md drop-shadow-xl">
             <p className="font-body text-md md:text-lg text-text-950">
               Lorem ipsum dolor sit amet, officia excepteur ex fugiat
               reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
