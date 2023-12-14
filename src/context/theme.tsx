@@ -1,5 +1,6 @@
 "use client";
 
+import { type Theme } from "@/definitions/themes";
 import {
   Dispatch,
   SetStateAction,
@@ -7,8 +8,6 @@ import {
   useContext,
   useState,
 } from "react";
-
-export type Theme = "light" | "dark";
 
 interface IThemeContext {
   theme: Theme;
@@ -19,12 +18,13 @@ const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
 export const ThemeContextProvider = ({
   children,
-  initTheme,
+  themeInput,
 }: {
   children: React.ReactNode;
-  initTheme?: Theme | undefined;
+  themeInput: Theme;
 }) => {
-  const [theme, setTheme] = useState<Theme>(initTheme ?? "dark");
+
+  const [theme, setTheme] = useState<Theme>(themeInput);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
