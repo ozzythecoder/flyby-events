@@ -5,50 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1702177636204,
-      "tag": "0000_flowery_mandrill",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1702178388211,
-      "tag": "0001_nappy_lily_hollister",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1702182340631,
-      "tag": "0002_daily_epoch",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1702513344470,
-      "tag": "0003_messy_dragon_man",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1702514322887,
-      "tag": "0004_gigantic_lord_tyger",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "5",
-      "when": 1702520351397,
-      "tag": "0005_past_mongu",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "5",
-      "when": 1702520407484,
-      "tag": "0006_dusty_starjammers",
+      "when": 1707952764831,
+      "tag": "0000_easy_psylocke",
       "breakpoints": true
     }
   ]

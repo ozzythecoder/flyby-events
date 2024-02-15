@@ -18,10 +18,11 @@ export const guestStatusEnum = pgEnum("guest_state", [
   "maybe",
 ]);
 
-export const users = pgTable("user", {
+export const users = pgTable("auth_user", {
   id: text("user_id").primaryKey(), // corresponds to userId in clerk
   fullName: varchar("full_name", { length: 256 }),
   username: varchar("username", { length: 256 }).notNull(),
+  email: varchar("email", { length: 256 }).notNull().unique(),
 });
 
 export const usersRelation = relations(users, ({ many }) => ({
@@ -41,10 +42,13 @@ export const events = pgTable("event", {
   private: boolean("private").default(false),
   location: varchar("location", { length: 256 }),
   description: varchar("description", { length: 3000 }),
-  timestamp: timestamp("timestamp", { withTimezone: true, mode: "string" }).notNull(),
+  timestamp: timestamp("timestamp", {
+    withTimezone: true,
+    mode: "string",
+  }).notNull(),
   ticketLink: varchar("ticket_link", { length: 256 }),
   hostId: text("host_id")
-    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' })
+    .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" })
     .notNull(),
 });
 
@@ -58,12 +62,14 @@ export const comments = pgTable("comment", {
   id: uuid("id").defaultRandom().primaryKey(),
   eventId: uuid("event_id")
     .notNull()
-    .references(() => events.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+    .references(() => events.id, { onDelete: "cascade", onUpdate: "cascade" }),
   authorId: text("author_id")
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
-  replyToId: uuid("reply_to_id")
-    .references((): AnyPgColumn => comments.id, { onDelete: 'no action', onUpdate: 'cascade' }),
+    .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" }),
+  replyToId: uuid("reply_to_id").references((): AnyPgColumn => comments.id, {
+    onDelete: "no action",
+    onUpdate: "cascade",
+  }),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
@@ -83,9 +89,11 @@ export const eventGuests = pgTable(
   "eventGuests",
   {
     userId: text("user_id")
-      .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }).notNull(),
+      .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" })
+      .notNull(),
     eventId: uuid("event_id")
-      .references(() => events.id, { onDelete: 'cascade', onUpdate: 'cascade' }).notNull(),
+      .references(() => events.id, { onDelete: "cascade", onUpdate: "cascade" })
+      .notNull(),
     guestStatus: guestStatusEnum("guest_state").default("none"),
     invitationRead: boolean("invitation_read").default(false),
   },
