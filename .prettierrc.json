@@ -2,13 +2,5 @@
     "tabWidth": 2,
     "trailingComma": "es5",
     "endOfLine": "lf",
-    "semi": true,
-    "overrides": [
-        {
-            "files": ["*.css", "*.json"],
-            "options": {
-                "tabWidth": 4
-            }
-        }
-    ]
+    "semi": true
 }
