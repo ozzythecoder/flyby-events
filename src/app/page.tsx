@@ -1,14 +1,14 @@
-import HeaderBar from "@components/ui/HeaderBar";
-import SkipToContent from "@components/ui/SkipToContent";
-import Sidenav from "@components/ui/Sidenav";
+import HeaderBar from "@components/HeaderBar";
+import SkipToContent from "@components/SkipToContent";
+import Sidenav from "@components/Sidenav";
 import { Button, ButtonAsLink } from "@components/ui/Button";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative mx-auto max-w-[1000px]">
       <SkipToContent />
       <Sidenav />
-      <div className="p-8 bg-gradient-to-br from-primary-100 via-primary-400 to-primary-800 bg-fixed h-[100vh] w-full">
+      <div className="page-gradient p-8 h-[100vh] w-full">
         <HeaderBar />
         <main
           id="main"

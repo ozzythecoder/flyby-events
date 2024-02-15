@@ -126,3 +126,16 @@
         --accent-950: 237 238 248;
     }
 }
+
+@layer components {
+    .page-gradient::before {
+        @apply bg-gradient-to-br from-primary-100 via-primary-400 to-primary-800;
+        position: fixed;
+        top: 0;
+        left: 0;
+        content: "";
+        height: 100%;
+        width: 100%;
+        z-index: -10;
+    }
+}
