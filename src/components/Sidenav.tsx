@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import useSwipe from "@/hooks/useSwipe";
+import useSwipe from "@/lib/hooks/useSwipe";
 import { useState } from "react";
 import { X, MenuIcon, User } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";

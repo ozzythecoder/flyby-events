@@ -1,8 +1,8 @@
 "use client";
 
-import { useThemeContext } from "@/context/theme";
+import { useThemeContext } from "@/lib/context/theme";
 import { Sun, Moon } from "lucide-react";
-import { setCookie } from "@/actions/cookie";
+import { setCookie } from "@/server-actions/cookie";
 
 export default function ThemeToggle(props: {
   onFocus?: () => void;
