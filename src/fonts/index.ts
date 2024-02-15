@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Bebas_Neue, Maven_Pro } from "next/font/google";
 
 const bebasNeue = Bebas_Neue({
@@ -14,4 +15,4 @@ const mavenPro = Maven_Pro({
   variable: "--font-maven-pro",
 });
 
-export { bebasNeue, mavenPro }
+export const fonts = clsx(mavenPro.variable, bebasNeue.variable);
