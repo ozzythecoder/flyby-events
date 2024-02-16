@@ -1,3 +1,4 @@
+import { FlybyApiResponse } from "@/definitions/api";
 import { db } from "@db/db";
 import { Event, eventGuests, events } from "@db/schema";
 import { eq } from "drizzle-orm";
@@ -28,11 +29,24 @@ export async function getEventById(eventId: string) {
   return response;
 }
 
-export async function getEventsByHost(userId: string) {
-  const response = await db
-    .select()
-    .from(events)
-    .where(eq(events.hostId, userId));
+export async function getEventsByHost(
+  userId: string
+): FlybyApiResponse<Event[]> {
+  try {
+    const response = await db
+      .select()
+      .from(events)
+      .where(eq(events.hostId, userId));
 
-  return response;
+    return {
+      data: response,
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error getting events by host:", error);
+    return {
+      data: null,
+      error: JSON.stringify(error),
+    };
+  }
 }
