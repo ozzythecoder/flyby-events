@@ -39,9 +39,8 @@ export default function SideNav() {
         )}
       </button>
       <div
-        className={`overflow-hidden bg-primary-200 max-w-[400px] m-2 rounded-md transition-[width] w-[60vw] sm:w-[40vw] ${
-          menuOpen ? "translate-x-0" : "-translate-x-[100dvw]"
-        }`}
+        className={`overflow-hidden bg-background-100 max-w-[400px] m-2 rounded-md transition-[width] w-[60vw] sm:w-[40vw] ${menuOpen ? "translate-x-0" : "-translate-x-[100dvw]"
+          }`}
       >
         <nav className="font-body text-xl m-16">
           <ul

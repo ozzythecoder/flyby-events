@@ -3,6 +3,7 @@ import { fonts } from "@/fonts";
 import "./globals.css";
 import ThemeWrapper from "@components/ThemeWrapper";
 import Providers from "@/providers";
+import { MainLayout } from "@components/Layout";
 
 export const metadata: Metadata = {
   title: "FlyBy Events",
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <Providers>
       <html className={fonts}>
-        <ThemeWrapper>{children}</ThemeWrapper>
+        <ThemeWrapper>
+          <MainLayout>{children}</MainLayout>
+        </ThemeWrapper>
       </html>
     </Providers>
   );
