@@ -19,6 +19,7 @@ const config: Config = {
       colors: {
         "high-contrast": "var(--high-contrast)",
         text: {
+          DEFAULT: "rgb(var(--text-900))",
           50: "rgb(var(--text-50))",
           100: "rgb(var(--text-100))",
           200: "rgb(var(--text-200))",
@@ -32,6 +33,7 @@ const config: Config = {
           950: "rgb(var(--text-950))",
         },
         background: {
+          DEFAULT: "rgb(var(--background-50))",
           50: "rgb(var(--background-50))",
           100: "rgb(var(--background-100))",
           200: "rgb(var(--background-200))",
@@ -43,9 +45,10 @@ const config: Config = {
           800: "rgb(var(--background-800))",
           900: "rgb(var(--background-900))",
           950: "rgb(var(--background-950))",
-          transparent: "rgb(var(--background-100) / <alpha-value>)",
+          transparent: "rgb(var(--background-200) / <alpha-value>)",
         },
         primary: {
+          DEFAULT: "rgb(var(--primary-600))",
           50: "rgb(var(--primary-50))",
           100: "rgb(var(--primary-100))",
           200: "rgb(var(--primary-200))",
