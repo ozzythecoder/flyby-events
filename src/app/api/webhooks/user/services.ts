@@ -1,6 +1,6 @@
 // User database management
 import type { UserJSON } from "@clerk/nextjs/server";
-import { db } from "@db/index";
+import { db } from "@db/db";
 import { users, type User } from "@db/schema";
 import { eq } from "drizzle-orm";
 
